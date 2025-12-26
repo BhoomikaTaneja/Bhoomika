@@ -19,19 +19,18 @@
 
   .glass-form {
     width: 100%;
-    max-width: 420px;
+    max-width: 430px;
     padding: 30px;
-    background: rgba(255, 255, 255, 0.08);
+    background: rgba(255,255,255,0.08);
     border-radius: 18px;
     backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
-    box-shadow: 0 20px 40px rgba(0,0,0,0.4);
     border: 1px solid rgba(255,255,255,0.15);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.45);
   }
 
-  .glass-form h2 {
+  h2 {
     text-align: center;
-    margin-bottom: 24px;
+    margin-bottom: 22px;
     font-weight: 600;
   }
 
@@ -51,9 +50,9 @@
     padding: 12px 14px;
     border-radius: 10px;
     border: none;
-    outline: none;
     background: rgba(255,255,255,0.12);
     color: #fff;
+    outline: none;
     font-size: 14px;
   }
 
@@ -67,22 +66,16 @@
   }
 
   .phone-row select {
-    width: 35%;
+    width: 45%;
   }
 
   .phone-row input {
-    width: 65%;
-  }
-
-  .error {
-    font-size: 12px;
-    color: #ff6b6b;
-    margin-top: 4px;
+    width: 55%;
   }
 
   button {
     width: 100%;
-    margin-top: 20px;
+    margin-top: 18px;
     padding: 14px;
     border-radius: 12px;
     border: none;
@@ -91,19 +84,19 @@
     cursor: pointer;
     background: linear-gradient(135deg, #7f7cff, #5f5bff);
     color: white;
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
   }
 
-  button:hover {
-    transform: translateY(-1px);
-    box-shadow: 0 8px 20px rgba(127,124,255,0.4);
+  .error {
+    font-size: 12px;
+    color: #ff6b6b;
+    margin-top: 4px;
   }
 
   .success {
-    text-align: center;
-    font-size: 14px;
+    font-size: 13px;
     color: #7CFF9B;
-    margin-top: 14px;
+    text-align: center;
+    margin-top: 10px;
   }
 </style>
 </head>
@@ -115,69 +108,93 @@
 
   <div class="field">
     <label>Full Name</label>
-    <input type="text" name="name" placeholder="Enter your name" required>
+    <input type="text" id="name" placeholder="Enter full name" required>
   </div>
 
   <div class="field">
     <label>Mobile Number</label>
     <div class="phone-row">
-      <select name="country_code" required>
-        <option value="+91">🇮🇳 +91</option>
-        <option value="+1">🇺🇸 +1</option>
-        <option value="+44">🇬🇧 +44</option>
-        <option value="+61">🇦🇺 +61</option>
+      <select id="country">
+        <option value="IN" data-code="+91">🇮🇳 India (+91)</option>
+        <option value="US" data-code="+1">🇺🇸 USA (+1)</option>
+        <option value="GB" data-code="+44">🇬🇧 UK (+44)</option>
+        <option value="AU" data-code="+61">🇦🇺 Australia (+61)</option>
       </select>
-      <input type="tel" name="mobile" placeholder="Mobile number" required>
+      <input type="tel" id="mobile" placeholder="Phone number" required>
     </div>
+    <div class="error" id="phoneError"></div>
   </div>
 
   <div class="field">
     <label>Date of Birth</label>
-    <input type="date" name="dob" id="dob" required>
+    <input type="date" id="dob" required>
     <div class="error" id="dobError"></div>
   </div>
 
   <div class="field">
     <label>Email</label>
-    <input type="email" name="email" placeholder="you@example.com" required>
+    <input type="email" id="email" placeholder="you@example.com" required>
   </div>
 
   <button type="submit">Submit</button>
-
   <div class="success" id="successMsg"></div>
 </form>
 
 <script>
-const form = document.getElementById("userForm");
-const dobInput = document.getElementById("dob");
-const dobError = document.getElementById("dobError");
-const successMsg = document.getElementById("successMsg");
-
 const WEBHOOK_URL = "https://bhoomikat-workflow.ifsjaipur.cloud/app/contactform";
 
-function is18OrAbove(dob) {
-  const birthDate = new Date(dob);
+const phoneRules = {
+  IN: /^[6-9]\d{9}$/,
+  US: /^\d{10}$/,
+  GB: /^\d{10}$/,
+  AU: /^\d{9}$/
+};
+
+function toProperCase(str) {
+  return str.toLowerCase().replace(/\b\w/g, c => c.toUpperCase());
+}
+
+function is18Plus(dob) {
+  const birth = new Date(dob);
   const today = new Date();
-  let age = today.getFullYear() - birthDate.getFullYear();
-  const m = today.getMonth() - birthDate.getMonth();
-  if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) {
-    age--;
-  }
+  let age = today.getFullYear() - birth.getFullYear();
+  const m = today.getMonth() - birth.getMonth();
+  if (m < 0 || (m === 0 && today.getDate() < birth.getDate())) age--;
   return age >= 18;
 }
 
-form.addEventListener("submit", async (e) => {
+document.getElementById("userForm").addEventListener("submit", async (e) => {
   e.preventDefault();
-  dobError.textContent = "";
-  successMsg.textContent = "";
 
-  if (!is18OrAbove(dobInput.value)) {
-    dobError.textContent = "You must be at least 18 years old.";
+  const name = toProperCase(document.getElementById("name").value.trim());
+  const countrySelect = document.getElementById("country");
+  const countryISO = countrySelect.value;
+  const countryCode = countrySelect.selectedOptions[0].dataset.code;
+  const mobile = document.getElementById("mobile").value.trim();
+  const dob = document.getElementById("dob").value;
+  const email = document.getElementById("email").value.trim();
+
+  document.getElementById("phoneError").textContent = "";
+  document.getElementById("dobError").textContent = "";
+  document.getElementById("successMsg").textContent = "";
+
+  if (!phoneRules[countryISO].test(mobile)) {
+    document.getElementById("phoneError").textContent = "Invalid phone number for selected country.";
     return;
   }
 
-  const formData = new FormData(form);
-  const payload = Object.fromEntries(formData.entries());
+  if (!is18Plus(dob)) {
+    document.getElementById("dobError").textContent = "You must be at least 18 years old.";
+    return;
+  }
+
+  const payload = {
+    name,
+    email,
+    dob,
+    country_iso: countryISO,
+    phone: `${countryCode}${mobile}`
+  };
 
   try {
     await fetch(WEBHOOK_URL, {
@@ -186,10 +203,10 @@ form.addEventListener("submit", async (e) => {
       body: JSON.stringify(payload)
     });
 
-    successMsg.textContent = "Form submitted successfully!";
-    form.reset();
-  } catch (error) {
-    dobError.textContent = "Submission failed. Try again.";
+    document.getElementById("successMsg").textContent = "Form submitted successfully!";
+    e.target.reset();
+  } catch {
+    document.getElementById("phoneError").textContent = "Submission failed. Try again.";
   }
 });
 </script>
