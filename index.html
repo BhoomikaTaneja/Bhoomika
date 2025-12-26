@@ -3,225 +3,160 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Bhoomika Taneja | Portfolio</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <title>Bhoomika Taneja | Strategic Assistant & Business Operations Professional</title>
+
+  <meta name="description" content="Portfolio of Bhoomika Taneja - MBA in Finance & Marketing with 2+ years experience in executive assistance, stakeholder coordination, and business operations. Currently learning Meta Tech, n8n, and business automation tools." />
+  <meta name="keywords" content="Bhoomika Taneja, Strategic Assistant, Executive Assistant, MBA Finance Marketing, Business Operations, Meta Tech, n8n, Typebot, Automation" />
+
+  <meta property="og:title" content="Bhoomika Taneja | Strategic Assistant & Business Operations" />
+  <meta property="og:description" content="MBA professional with expertise in executive assistance, project coordination, and business automation." />
+  <meta property="og:type" content="website" />
+
+  <link rel="canonical" href="https://bhoomika-taneja.github.io" />
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Tailwind CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Custom CSS Variables & Styles -->
   <style>
     :root {
-      --bg: #f8f9ff;
-      --primary: #b8c0ff;
-      --secondary: #ffd6e0;
-      --accent: #cdb4db;
-      --text: #2b2b2b;
-      --card: #ffffff;
-    }
+      --background: 30 30% 98%;
+      --foreground: 240 10% 20%;
+      --primary: 270 50% 70%;
+      --secondary: 165 40% 88%;
+      --accent: 15 70% 85%;
+      --border: 270 20% 90%;
 
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: 'Poppins', sans-serif;
+      --gradient-hero: linear-gradient(135deg, hsl(270 50% 95%) 0%, hsl(165 40% 95%) 50%, hsl(15 70% 95%) 100%);
+      --gradient-card: linear-gradient(145deg, #ffffff 0%, #faf7ff 100%);
+      --gradient-text: linear-gradient(135deg, #9b87f5 0%, #d946ef 100%);
+
+      --shadow-card: 0 10px 40px -10px rgba(120, 90, 200, 0.15);
     }
 
     body {
-      background: linear-gradient(135deg, var(--bg), #fdfcff);
-      color: var(--text);
-      line-height: 1.6;
+      font-family: 'Outfit', sans-serif;
+      background: var(--gradient-hero);
+      color: hsl(var(--foreground));
     }
 
-    header {
-      padding: 60px 20px;
-      text-align: center;
+    h1, h2, h3 {
+      font-family: 'Playfair Display', serif;
     }
 
-    header h1 {
-      font-size: 2.5rem;
-      font-weight: 600;
+    .gradient-text {
+      background: var(--gradient-text);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
     }
 
-    header p {
-      margin-top: 10px;
-      font-size: 1.1rem;
-      opacity: 0.85;
-    }
-
-    nav {
-      display: flex;
-      justify-content: center;
-      gap: 25px;
-      margin-top: 30px;
-      flex-wrap: wrap;
-    }
-
-    nav a {
-      text-decoration: none;
-      color: var(--text);
-      font-weight: 500;
-      padding: 8px 16px;
-      border-radius: 20px;
-      background: rgba(255,255,255,0.6);
-      transition: all 0.3s ease;
-    }
-
-    nav a:hover {
-      background: var(--primary);
-      color: #fff;
-    }
-
-    section {
-      max-width: 1000px;
-      margin: 60px auto;
-      padding: 0 20px;
-    }
-
-    section h2 {
-      font-size: 2rem;
-      margin-bottom: 20px;
-      color: #3b3b3b;
-    }
-
-    .card {
-      background: var(--card);
-      border-radius: 20px;
-      padding: 25px;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-      margin-bottom: 25px;
-    }
-
-    .skills {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 20px;
-    }
-
-    .skill {
-      background: linear-gradient(135deg, var(--primary), var(--accent));
-      color: #fff;
-      padding: 20px;
-      border-radius: 18px;
-      font-weight: 500;
-      text-align: center;
-    }
-
-    .projects {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 25px;
-    }
-
-    .project-card {
-      background: #fff;
-      border-radius: 20px;
-      padding: 25px;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.06);
-      transition: transform 0.3s ease;
-    }
-
-    .project-card:hover {
-      transform: translateY(-6px);
-    }
-
-    footer {
-      text-align: center;
-      padding: 40px 20px;
-      font-size: 0.9rem;
-      opacity: 0.7;
-    }
-
-    .contact a {
-      display: inline-block;
-      margin-right: 15px;
-      margin-top: 10px;
-      text-decoration: none;
-      color: #5a5a5a;
-      font-weight: 500;
-    }
-
-    .contact a:hover {
-      color: #000;
+    .card-glass {
+      background: var(--gradient-card);
+      border-radius: 1rem;
+      box-shadow: var(--shadow-card);
+      border: 1px solid hsl(var(--border));
     }
   </style>
 </head>
-<body>
+<body class="min-h-screen">
 
-  <header>
-    <h1>Bhoomika Taneja</h1>
-    <p>Business Automation Learner | Excel • Power Query • Typebot • n8n</p>
-    <nav>
-      <a href="#about">About</a>
-      <a href="#skills">Skills</a>
-      <a href="#projects">Projects</a>
-      <a href="#experience">Experience</a>
-      <a href="#contact">Contact</a>
+  <!-- Navbar -->
+  <header class="sticky top-0 z-50 bg-white/70 backdrop-blur border-b border-gray-200">
+    <nav class="max-w-6xl mx-auto flex justify-between items-center px-6 py-4">
+      <h2 class="text-xl font-semibold">Bhoomika Taneja</h2>
+      <div class="space-x-6 text-sm font-medium">
+        <a href="#about" class="hover:text-purple-500">About</a>
+        <a href="#experience" class="hover:text-purple-500">Experience</a>
+        <a href="#skills" class="hover:text-purple-500">Skills</a>
+        <a href="#projects" class="hover:text-purple-500">Projects</a>
+        <a href="#contact" class="hover:text-purple-500">Contact</a>
+      </div>
     </nav>
   </header>
 
-  <section id="about">
-    <h2>About Me</h2>
-    <div class="card">
-      <p>
-        I am currently pursuing a Meta Tech course focused on Excel, Power Query, Typebot, n8n, and Business Automation.
-        With a background in Finance and Marketing (MBA), I enjoy building efficient workflows, automating processes,
-        and turning data into actionable insights.
+  <main>
+
+    <!-- Hero Section -->
+    <section class="max-w-6xl mx-auto px-6 py-24 text-center">
+      <h1 class="text-4xl md:text-5xl font-bold gradient-text">Bhoomika Taneja</h1>
+      <p class="mt-6 text-lg max-w-2xl mx-auto text-gray-600">
+        Strategic Assistant & Business Operations Professional with an MBA in Finance & Marketing.
+        Currently building expertise in Meta Tech, n8n, Typebot, and business automation.
       </p>
-    </div>
-  </section>
+    </section>
 
-  <section id="skills">
-    <h2>Skills</h2>
-    <div class="skills">
-      <div class="skill">Advanced Excel & Dashboards</div>
-      <div class="skill">Power Query Automation</div>
-      <div class="skill">Typebot Chatbots</div>
-      <div class="skill">n8n Workflow Automation</div>
-      <div class="skill">Business Process Optimization</div>
-      <div class="skill">Reporting & Analysis</div>
-    </div>
-  </section>
-
-  <section id="projects">
-    <h2>Projects</h2>
-    <div class="projects">
-      <div class="project-card">
-        <h3>Excel Automation Project</h3>
-        <p>Automated reporting using Excel formulas, Power Query, and dashboards.</p>
-        <p><em>Add GitHub / demo link</em></p>
+    <!-- About Section -->
+    <section id="about" class="max-w-6xl mx-auto px-6 py-20">
+      <div class="card-glass p-10">
+        <h2 class="text-3xl mb-4">About Me</h2>
+        <p class="text-gray-600">
+          Detail-oriented professional with 2+ years of experience supporting senior leadership,
+          managing stakeholder coordination, and optimizing operational workflows. Passionate about
+          automation, structured systems, and data-driven decision-making.
+        </p>
       </div>
-      <div class="project-card">
-        <h3>Typebot Lead Collection</h3>
-        <p>Built a chatbot integrated with Google Sheets for automated lead capture.</p>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="max-w-6xl mx-auto px-6 py-20">
+      <h2 class="text-3xl mb-8">Experience</h2>
+      <div class="grid md:grid-cols-2 gap-8">
+        <div class="card-glass p-6">
+          <h3 class="text-xl font-semibold">Strategic Assistant to CEO/CFO</h3>
+          <p class="text-sm text-gray-500">ABIS IB Group | 2025 – Present</p>
+          <p class="mt-3 text-gray-600">Executive coordination, reporting, business analysis, and follow-ups.</p>
+        </div>
+        <div class="card-glass p-6">
+          <h3 class="text-xl font-semibold">Executive</h3>
+          <p class="text-sm text-gray-500">Manipal University Jaipur | 2024</p>
+          <p class="mt-3 text-gray-600">Managed international collaborations, events, and academic partnerships.</p>
+        </div>
       </div>
-      <div class="project-card">
-        <h3>n8n Business Workflow</h3>
-        <p>Designed an end-to-end automation for form submission, email alerts, and CRM updates.</p>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="max-w-6xl mx-auto px-6 py-20">
+      <h2 class="text-3xl mb-8">Skills</h2>
+      <div class="grid grid-cols-2 md:grid-cols-3 gap-6">
+        <div class="card-glass p-4 text-center">Advanced Excel</div>
+        <div class="card-glass p-4 text-center">Power Query</div>
+        <div class="card-glass p-4 text-center">Typebot</div>
+        <div class="card-glass p-4 text-center">n8n Automation</div>
+        <div class="card-glass p-4 text-center">Business Operations</div>
+        <div class="card-glass p-4 text-center">Executive Reporting</div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <section id="experience">
-    <h2>Experience</h2>
-    <div class="card">
-      <h3>Strategic Assistant to CEO/CFO</h3>
-      <p><strong>ABIS IB Group</strong> | March 2025 – Present</p>
-      <p>Supporting leadership with reporting, follow-ups, coordination, and business analysis.</p>
-    </div>
-    <div class="card">
-      <h3>Executive</h3>
-      <p><strong>AUSM MoU – Manipal University Jaipur</strong> | Jan 2024 – Aug 2024</p>
-      <p>Managed international collaborations, events, and academic coordination.</p>
-    </div>
-  </section>
+    <!-- Projects Section -->
+    <section id="projects" class="max-w-6xl mx-auto px-6 py-20">
+      <h2 class="text-3xl mb-8">Projects</h2>
+      <div class="grid md:grid-cols-3 gap-8">
+        <div class="card-glass p-6">Excel Automation Dashboard</div>
+        <div class="card-glass p-6">Typebot Lead Collection</div>
+        <div class="card-glass p-6">n8n Workflow Automation</div>
+      </div>
+    </section>
 
-  <section id="contact">
-    <h2>Contact</h2>
-    <div class="card contact">
-      <a href="mailto:bhoomikabhilai@gmail.com">📧 Email</a>
-      <a href="https://www.linkedin.com/in/bhoomika-taneja-919066170" target="_blank">🔗 LinkedIn</a>
-      <a href="https://github.com/" target="_blank">💻 GitHub</a>
-    </div>
-  </section>
+    <!-- Contact Section -->
+    <section id="contact" class="max-w-6xl mx-auto px-6 py-20 text-center">
+      <h2 class="text-3xl mb-6">Contact</h2>
+      <p class="text-gray-600">Let’s connect and build something meaningful.</p>
+      <div class="mt-6 space-x-6">
+        <a href="mailto:bhoomikabhilai@gmail.com" class="text-purple-600">Email</a>
+        <a href="https://www.linkedin.com/in/bhoomika-taneja-919066170" target="_blank" class="text-purple-600">LinkedIn</a>
+        <a href="https://github.com" target="_blank" class="text-purple-600">GitHub</a>
+      </div>
+    </section>
 
-  <footer>
-    © 2025 Bhoomika Taneja • Built with HTML, CSS & JavaScript
+  </main>
+
+  <!-- Footer -->
+  <footer class="text-center py-10 text-sm text-gray-500">
+    © 2025 Bhoomika Taneja · Built with HTML, Tailwind CSS & ❤️
   </footer>
 
 </body>
