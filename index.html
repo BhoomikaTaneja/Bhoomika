@@ -1,30 +1,228 @@
-<html>
-<head>|
-<title>My Portfolio</title>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bhoomika Taneja | Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #f8f9ff;
+      --primary: #b8c0ff;
+      --secondary: #ffd6e0;
+      --accent: #cdb4db;
+      --text: #2b2b2b;
+      --card: #ffffff;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      background: linear-gradient(135deg, var(--bg), #fdfcff);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    header {
+      padding: 60px 20px;
+      text-align: center;
+    }
+
+    header h1 {
+      font-size: 2.5rem;
+      font-weight: 600;
+    }
+
+    header p {
+      margin-top: 10px;
+      font-size: 1.1rem;
+      opacity: 0.85;
+    }
+
+    nav {
+      display: flex;
+      justify-content: center;
+      gap: 25px;
+      margin-top: 30px;
+      flex-wrap: wrap;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: var(--text);
+      font-weight: 500;
+      padding: 8px 16px;
+      border-radius: 20px;
+      background: rgba(255,255,255,0.6);
+      transition: all 0.3s ease;
+    }
+
+    nav a:hover {
+      background: var(--primary);
+      color: #fff;
+    }
+
+    section {
+      max-width: 1000px;
+      margin: 60px auto;
+      padding: 0 20px;
+    }
+
+    section h2 {
+      font-size: 2rem;
+      margin-bottom: 20px;
+      color: #3b3b3b;
+    }
+
+    .card {
+      background: var(--card);
+      border-radius: 20px;
+      padding: 25px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+      margin-bottom: 25px;
+    }
+
+    .skills {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 20px;
+    }
+
+    .skill {
+      background: linear-gradient(135deg, var(--primary), var(--accent));
+      color: #fff;
+      padding: 20px;
+      border-radius: 18px;
+      font-weight: 500;
+      text-align: center;
+    }
+
+    .projects {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 25px;
+    }
+
+    .project-card {
+      background: #fff;
+      border-radius: 20px;
+      padding: 25px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.06);
+      transition: transform 0.3s ease;
+    }
+
+    .project-card:hover {
+      transform: translateY(-6px);
+    }
+
+    footer {
+      text-align: center;
+      padding: 40px 20px;
+      font-size: 0.9rem;
+      opacity: 0.7;
+    }
+
+    .contact a {
+      display: inline-block;
+      margin-right: 15px;
+      margin-top: 10px;
+      text-decoration: none;
+      color: #5a5a5a;
+      font-weight: 500;
+    }
+
+    .contact a:hover {
+      color: #000;
+    }
+  </style>
 </head>
 <body>
-  <script type="module">
-  import Typebot from 'https://cdn.jsdelivr.net/npm/@typebot.io/js@0/dist/web.js'
 
-  Typebot.initBubble({
-    typebot: "my-typebot-e4qmeug",
-    apiHost: "https://bot.aiwf.in",
-    theme: {
-      button: { backgroundColor: "#1D1D1D" },
-      chatWindow: { backgroundColor: "#F8F8F8" },
-    },
-  });
-</script>
+  <header>
+    <h1>Bhoomika Taneja</h1>
+    <p>Business Automation Learner | Excel • Power Query • Typebot • n8n</p>
+    <nav>
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#projects">Projects</a>
+      <a href="#experience">Experience</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
 
-<h1>Welcome to My Website</h1>
-<p>This site is created as part of the Meta Tech Course.</p>
-<!-- Embed n8n form -->
-<iframe
-  src="https://bhoomikat-workflow.ifsjaipur.cloud/form/addcust"
-  style="width:100%; height:900px; border:none;"
-  frameborder="0"
-  scrolling="auto"
-  allowfullscreen>
-</iframe>
+  <section id="about">
+    <h2>About Me</h2>
+    <div class="card">
+      <p>
+        I am currently pursuing a Meta Tech course focused on Excel, Power Query, Typebot, n8n, and Business Automation.
+        With a background in Finance and Marketing (MBA), I enjoy building efficient workflows, automating processes,
+        and turning data into actionable insights.
+      </p>
+    </div>
+  </section>
+
+  <section id="skills">
+    <h2>Skills</h2>
+    <div class="skills">
+      <div class="skill">Advanced Excel & Dashboards</div>
+      <div class="skill">Power Query Automation</div>
+      <div class="skill">Typebot Chatbots</div>
+      <div class="skill">n8n Workflow Automation</div>
+      <div class="skill">Business Process Optimization</div>
+      <div class="skill">Reporting & Analysis</div>
+    </div>
+  </section>
+
+  <section id="projects">
+    <h2>Projects</h2>
+    <div class="projects">
+      <div class="project-card">
+        <h3>Excel Automation Project</h3>
+        <p>Automated reporting using Excel formulas, Power Query, and dashboards.</p>
+        <p><em>Add GitHub / demo link</em></p>
+      </div>
+      <div class="project-card">
+        <h3>Typebot Lead Collection</h3>
+        <p>Built a chatbot integrated with Google Sheets for automated lead capture.</p>
+      </div>
+      <div class="project-card">
+        <h3>n8n Business Workflow</h3>
+        <p>Designed an end-to-end automation for form submission, email alerts, and CRM updates.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="experience">
+    <h2>Experience</h2>
+    <div class="card">
+      <h3>Strategic Assistant to CEO/CFO</h3>
+      <p><strong>ABIS IB Group</strong> | March 2025 – Present</p>
+      <p>Supporting leadership with reporting, follow-ups, coordination, and business analysis.</p>
+    </div>
+    <div class="card">
+      <h3>Executive</h3>
+      <p><strong>AUSM MoU – Manipal University Jaipur</strong> | Jan 2024 – Aug 2024</p>
+      <p>Managed international collaborations, events, and academic coordination.</p>
+    </div>
+  </section>
+
+  <section id="contact">
+    <h2>Contact</h2>
+    <div class="card contact">
+      <a href="mailto:bhoomikabhilai@gmail.com">📧 Email</a>
+      <a href="https://www.linkedin.com/in/bhoomika-taneja-919066170" target="_blank">🔗 LinkedIn</a>
+      <a href="https://github.com/" target="_blank">💻 GitHub</a>
+    </div>
+  </section>
+
+  <footer>
+    © 2025 Bhoomika Taneja • Built with HTML, CSS & JavaScript
+  </footer>
+
 </body>
 </html>
