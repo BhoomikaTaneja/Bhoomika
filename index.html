@@ -1,163 +1,1034 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nidan Life - Health, Wealth & Happiness</title>
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@300;400;600&family=Work+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #2c3e2e;
+            --secondary: #7a9679;
+            --accent: #c08552;
+            --bg: #fdfcf9;
+            --text: #3a3a3a;
+            --light: #e8e6e0;
+            --white: #ffffff;
+        }
 
-  <title>Bhoomika Taneja | Strategic Assistant & Business Operations Professional</title>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-  <meta name="description" content="Portfolio of Bhoomika Taneja - MBA in Finance & Marketing with 2+ years experience in executive assistance, stakeholder coordination, and business operations. Currently learning Meta Tech, n8n, and business automation tools." />
-  <meta name="keywords" content="Bhoomika Taneja, Strategic Assistant, Executive Assistant, MBA Finance Marketing, Business Operations, Meta Tech, n8n, Typebot, Automation" />
+        body {
+            font-family: 'Work Sans', sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
 
-  <meta property="og:title" content="Bhoomika Taneja | Strategic Assistant & Business Operations" />
-  <meta property="og:description" content="MBA professional with expertise in executive assistance, project coordination, and business automation." />
-  <meta property="og:type" content="website" />
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(253, 252, 249, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            border-bottom: 1px solid var(--light);
+        }
 
-  <link rel="canonical" href="https://bhoomika-taneja.github.io" />
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1.5rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
 
-  <!-- Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+        .logo {
+            font-family: 'Crimson Pro', serif;
+            font-size: 1.8rem;
+            font-weight: 600;
+            color: var(--primary);
+            text-decoration: none;
+        }
 
-  <!-- Tailwind CDN -->
-  <script src="https://cdn.tailwindcss.com"></script>
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+            list-style: none;
+        }
 
-  <!-- Custom CSS Variables & Styles -->
-  <style>
-    :root {
-      --background: 30 30% 98%;
-      --foreground: 240 10% 20%;
-      --primary: 270 50% 70%;
-      --secondary: 165 40% 88%;
-      --accent: 15 70% 85%;
-      --border: 270 20% 90%;
+        .nav-links a {
+            color: var(--text);
+            text-decoration: none;
+            font-weight: 400;
+            font-size: 0.95rem;
+            transition: color 0.3s;
+            letter-spacing: 0.3px;
+        }
 
-      --gradient-hero: linear-gradient(135deg, hsl(270 50% 95%) 0%, hsl(165 40% 95%) 50%, hsl(15 70% 95%) 100%);
-      --gradient-card: linear-gradient(145deg, #ffffff 0%, #faf7ff 100%);
-      --gradient-text: linear-gradient(135deg, #9b87f5 0%, #d946ef 100%);
+        .nav-links a:hover {
+            color: var(--accent);
+        }
 
-      --shadow-card: 0 10px 40px -10px rgba(120, 90, 200, 0.15);
-    }
+        /* Hero Section */
+        .hero {
+            margin-top: 80px;
+            min-height: 85vh;
+            display: flex;
+            align-items: center;
+            padding: 4rem 2rem;
+            background: linear-gradient(135deg, rgba(122, 150, 121, 0.05), rgba(192, 133, 82, 0.05));
+            position: relative;
+            overflow: hidden;
+        }
 
-    body {
-      font-family: 'Outfit', sans-serif;
-      background: var(--gradient-hero);
-      color: hsl(var(--foreground));
-    }
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(122, 150, 121, 0.1), transparent);
+            border-radius: 50%;
+            animation: float 20s infinite ease-in-out;
+        }
 
-    h1, h2, h3 {
-      font-family: 'Playfair Display', serif;
-    }
+        @keyframes float {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            50% { transform: translate(-50px, -50px) scale(1.1); }
+        }
 
-    .gradient-text {
-      background: var(--gradient-text);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
+        .hero-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
 
-    .card-glass {
-      background: var(--gradient-card);
-      border-radius: 1rem;
-      box-shadow: var(--shadow-card);
-      border: 1px solid hsl(var(--border));
-    }
-  </style>
+        .hero h1 {
+            font-family: 'Crimson Pro', serif;
+            font-size: 4.5rem;
+            font-weight: 300;
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .hero-subtitle {
+            font-size: 1.3rem;
+            color: var(--secondary);
+            margin-bottom: 2rem;
+            max-width: 700px;
+            font-weight: 300;
+            animation: fadeInUp 1s ease-out 0.2s backwards;
+        }
+
+        .hero-description {
+            font-size: 1.05rem;
+            color: var(--text);
+            max-width: 650px;
+            margin-bottom: 3rem;
+            line-height: 1.8;
+            animation: fadeInUp 1s ease-out 0.4s backwards;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 1rem 2.5rem;
+            background: var(--primary);
+            color: var(--white);
+            text-decoration: none;
+            font-weight: 500;
+            border-radius: 2px;
+            transition: all 0.3s;
+            letter-spacing: 0.5px;
+            animation: fadeInUp 1s ease-out 0.6s backwards;
+        }
+
+        .cta-button:hover {
+            background: var(--accent);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(192, 133, 82, 0.2);
+        }
+
+        /* Section Styling */
+        section {
+            padding: 6rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-header h2 {
+            font-family: 'Crimson Pro', serif;
+            font-size: 3rem;
+            font-weight: 400;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+
+        .section-header p {
+            font-size: 1.1rem;
+            color: var(--secondary);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Pillars Grid */
+        .pillars-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 3rem;
+            margin-top: 3rem;
+        }
+
+        .pillar-card {
+            padding: 3rem 2.5rem;
+            background: var(--white);
+            border: 1px solid var(--light);
+            transition: all 0.4s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .pillar-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 0;
+            background: var(--accent);
+            transition: height 0.4s;
+        }
+
+        .pillar-card:hover::before {
+            height: 100%;
+        }
+
+        .pillar-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+        }
+
+        .pillar-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .pillar-card h3 {
+            font-family: 'Crimson Pro', serif;
+            font-size: 1.8rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .pillar-card p {
+            color: var(--text);
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+        }
+
+        .pillar-link {
+            display: inline-block;
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s;
+            border-bottom: 1px solid transparent;
+        }
+
+        .pillar-link:hover {
+            border-bottom-color: var(--accent);
+            padding-left: 5px;
+        }
+
+        /* Philosophy Section */
+        .philosophy {
+            background: var(--white);
+            margin: 4rem 2rem;
+            padding: 5rem 3rem;
+            border-left: 6px solid var(--secondary);
+        }
+
+        .philosophy-content {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .philosophy h2 {
+            font-family: 'Crimson Pro', serif;
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 2rem;
+        }
+
+        .philosophy-text {
+            font-size: 1.1rem;
+            line-height: 1.9;
+            color: var(--text);
+            margin-bottom: 1.5rem;
+        }
+
+        .philosophy-highlight {
+            font-style: italic;
+            color: var(--secondary);
+            font-size: 1.2rem;
+            padding: 2rem 0;
+            border-top: 1px solid var(--light);
+            border-bottom: 1px solid var(--light);
+            margin: 2rem 0;
+        }
+
+        /* Features Section */
+        .features-list {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .feature-item {
+            padding: 2rem;
+            background: linear-gradient(135deg, rgba(122, 150, 121, 0.03), transparent);
+            border-left: 3px solid var(--secondary);
+        }
+
+        .feature-item h4 {
+            font-family: 'Crimson Pro', serif;
+            font-size: 1.3rem;
+            color: var(--primary);
+            margin-bottom: 0.8rem;
+        }
+
+        .feature-item p {
+            color: var(--text);
+            line-height: 1.7;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--primary);
+            color: var(--white);
+            padding: 4rem 2rem 2rem;
+            margin-top: 6rem;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-section h4 {
+            font-family: 'Crimson Pro', serif;
+            font-size: 1.3rem;
+            margin-bottom: 1.5rem;
+            font-weight: 600;
+        }
+
+        .footer-section p,
+        .footer-section a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            display: block;
+            margin-bottom: 0.8rem;
+            line-height: 1.7;
+            transition: color 0.3s;
+        }
+
+        .footer-section a:hover {
+            color: var(--accent);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 3rem;
+            }
+
+            .nav-links {
+                gap: 1.5rem;
+                flex-wrap: wrap;
+            }
+
+            .features-list {
+                grid-template-columns: 1fr;
+            }
+
+            .section-header h2 {
+                font-size: 2.2rem;
+            }
+        }
+
+        /* Page Content Sections */
+        .page-section {
+            display: none;
+        }
+
+        .page-section.active {
+            display: block;
+        }
+
+        .content-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2.5rem;
+            margin-top: 3rem;
+        }
+
+        .content-card {
+            background: var(--white);
+            padding: 2.5rem;
+            border: 1px solid var(--light);
+            transition: all 0.3s;
+        }
+
+        .content-card:hover {
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.06);
+            transform: translateY(-3px);
+        }
+
+        .content-card h3 {
+            font-family: 'Crimson Pro', serif;
+            font-size: 1.6rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+
+        .content-card ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .content-card li {
+            padding: 0.6rem 0;
+            padding-left: 1.5rem;
+            position: relative;
+            color: var(--text);
+        }
+
+        .content-card li::before {
+            content: '—';
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+        }
+
+        .journey-steps {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .step {
+            display: flex;
+            gap: 2rem;
+            padding: 2rem;
+            background: linear-gradient(to right, rgba(122, 150, 121, 0.05), transparent);
+            border-left: 4px solid var(--secondary);
+        }
+
+        .step-number {
+            font-family: 'Crimson Pro', serif;
+            font-size: 3rem;
+            font-weight: 600;
+            color: var(--accent);
+            line-height: 1;
+            min-width: 60px;
+        }
+
+        .step-content h3 {
+            font-family: 'Crimson Pro', serif;
+            font-size: 1.6rem;
+            color: var(--primary);
+            margin-bottom: 0.8rem;
+        }
+
+        .step-content p {
+            color: var(--text);
+            line-height: 1.8;
+        }
+    </style>
 </head>
-<body class="min-h-screen">
-
-  <!-- Navbar -->
-  <header class="sticky top-0 z-50 bg-white/70 backdrop-blur border-b border-gray-200">
-    <nav class="max-w-6xl mx-auto flex justify-between items-center px-6 py-4">
-      <h2 class="text-xl font-semibold">Bhoomika Taneja</h2>
-      <div class="space-x-6 text-sm font-medium">
-        <a href="#about" class="hover:text-purple-500">About</a>
-        <a href="#experience" class="hover:text-purple-500">Experience</a>
-        <a href="#skills" class="hover:text-purple-500">Skills</a>
-        <a href="#projects" class="hover:text-purple-500">Projects</a>
-        <a href="#contact" class="hover:text-purple-500">Contact</a>
-      </div>
+<body>
+    <nav>
+        <div class="nav-container">
+            <a href="#" class="logo" onclick="showPage('home')">Nidan Life</a>
+            <ul class="nav-links">
+                <li><a href="#" onclick="showPage('home')">Home</a></li>
+                <li><a href="#" onclick="showPage('health')">Health</a></li>
+                <li><a href="#" onclick="showPage('wealth')">Wealth</a></li>
+                <li><a href="#" onclick="showPage('happiness')">Happiness</a></li>
+                <li><a href="#" onclick="showPage('journey')">Your Journey</a></li>
+            </ul>
+        </div>
     </nav>
-  </header>
 
-  <main>
-
-    <!-- Hero Section -->
-    <section class="max-w-6xl mx-auto px-6 py-24 text-center">
-      <h1 class="text-4xl md:text-5xl font-bold gradient-text">Bhoomika Taneja</h1>
-      <p class="mt-6 text-lg max-w-2xl mx-auto text-gray-600">
-        Strategic Assistant & Business Operations Professional with an MBA in Finance & Marketing.
-        Currently building expertise in Meta Tech, n8n, Typebot, and business automation.
-      </p>
-    </section>
-
-    <!-- About Section -->
-    <section id="about" class="max-w-6xl mx-auto px-6 py-20">
-      <div class="card-glass p-10">
-        <h2 class="text-3xl mb-4">About Me</h2>
-        <p class="text-gray-600">
-          Detail-oriented professional with 2+ years of experience supporting senior leadership,
-          managing stakeholder coordination, and optimizing operational workflows. Passionate about
-          automation, structured systems, and data-driven decision-making.
-        </p>
-      </div>
-    </section>
-
-    <!-- Experience Section -->
-    <section id="experience" class="max-w-6xl mx-auto px-6 py-20">
-      <h2 class="text-3xl mb-8">Experience</h2>
-      <div class="grid md:grid-cols-2 gap-8">
-        <div class="card-glass p-6">
-          <h3 class="text-xl font-semibold">Strategic Assistant to CEO/CFO</h3>
-          <p class="text-sm text-gray-500">ABIS IB Group | 2025 – Present</p>
-          <p class="mt-3 text-gray-600">Executive coordination, reporting, business analysis, and follow-ups.</p>
+    <!-- HOME PAGE -->
+    <div id="home" class="page-section active">
+        <div class="hero">
+            <div class="hero-content">
+                <h1>Balance Your Life<br>with Purpose</h1>
+                <div class="hero-subtitle">New Year. New Foundation. New You.</div>
+                <p class="hero-description">
+                    Nidan Life is rooted in the philosophy of sustainable living and purposeful growth. 
+                    We believe that true success comes from harmonizing health, wealth, and happiness—not 
+                    pursuing them in isolation. For working professionals seeking meaningful change.
+                </p>
+                <a href="#" class="cta-button" onclick="showPage('journey')">Begin Your Journey</a>
+            </div>
         </div>
-        <div class="card-glass p-6">
-          <h3 class="text-xl font-semibold">Executive</h3>
-          <p class="text-sm text-gray-500">Manipal University Jaipur | 2024</p>
-          <p class="mt-3 text-gray-600">Managed international collaborations, events, and academic partnerships.</p>
+
+        <section>
+            <div class="section-header">
+                <h2>Three Pillars of Growth</h2>
+                <p>A holistic approach to professional and personal development</p>
+            </div>
+
+            <div class="pillars-grid">
+                <div class="pillar-card">
+                    <div class="pillar-icon">🌱</div>
+                    <h3>Health</h3>
+                    <p>Build physical and mental resilience. Sustainable habits for energy, clarity, and longevity. Your body and mind are your greatest assets.</p>
+                    <a href="#" class="pillar-link" onclick="showPage('health')">Explore Health →</a>
+                </div>
+
+                <div class="pillar-card">
+                    <div class="pillar-icon">🌿</div>
+                    <h3>Wealth</h3>
+                    <p>Develop financial wisdom and career growth. Build security, make strategic decisions, and create opportunities aligned with your values.</p>
+                    <a href="#" class="pillar-link" onclick="showPage('wealth')">Explore Wealth →</a>
+                </div>
+
+                <div class="pillar-card">
+                    <div class="pillar-icon">🌾</div>
+                    <h3>Happiness</h3>
+                    <p>Cultivate meaningful relationships and inner peace. Balance work with family, friends, and community. Find fulfillment beyond achievement.</p>
+                    <a href="#" class="pillar-link" onclick="showPage('happiness')">Explore Happiness →</a>
+                </div>
+            </div>
+        </section>
+
+        <div class="philosophy">
+            <div class="philosophy-content">
+                <h2>The Nidan Philosophy</h2>
+                <p class="philosophy-text">
+                    Nidan represents "foundation" in Sanskrit—the bedrock upon which sustainable growth is built. 
+                    Our philosophy rejects quick fixes and empty promises. Instead, we focus on fundamental principles 
+                    that create lasting transformation.
+                </p>
+                <p class="philosophy-text">
+                    In a world of constant hustle and distraction, we advocate for intentional living. Every choice 
+                    matters. Every habit compounds. Every relationship deepens or fades based on attention given.
+                </p>
+                <p class="philosophy-highlight">
+                    "True wealth is measured not by what you accumulate, but by what you sustain—in health, 
+                    relationships, and peace of mind."
+                </p>
+                <p class="philosophy-text">
+                    This website is for professionals who want more than career success. It's for those seeking 
+                    work-life harmony, deeper connections, and a life that aligns with their deepest values. 
+                    No gimmicks. No shortcuts. Just proven principles and practical wisdom.
+                </p>
+            </div>
         </div>
-      </div>
-    </section>
 
-    <!-- Skills Section -->
-    <section id="skills" class="max-w-6xl mx-auto px-6 py-20">
-      <h2 class="text-3xl mb-8">Skills</h2>
-      <div class="grid grid-cols-2 md:grid-cols-3 gap-6">
-        <div class="card-glass p-4 text-center">Advanced Excel</div>
-        <div class="card-glass p-4 text-center">Power Query</div>
-        <div class="card-glass p-4 text-center">Typebot</div>
-        <div class="card-glass p-4 text-center">n8n Automation</div>
-        <div class="card-glass p-4 text-center">Business Operations</div>
-        <div class="card-glass p-4 text-center">Executive Reporting</div>
-      </div>
-    </section>
+        <section>
+            <div class="section-header">
+                <h2>What You'll Find Here</h2>
+                <p>Practical guidance across all dimensions of life</p>
+            </div>
 
-    <!-- Projects Section -->
-    <section id="projects" class="max-w-6xl mx-auto px-6 py-20">
-      <h2 class="text-3xl mb-8">Projects</h2>
-      <div class="grid md:grid-cols-3 gap-8">
-        <div class="card-glass p-6">Excel Automation Dashboard</div>
-        <div class="card-glass p-6">Typebot Lead Collection</div>
-        <div class="card-glass p-6">n8n Workflow Automation</div>
-      </div>
-    </section>
+            <div class="features-list">
+                <div class="feature-item">
+                    <h4>Work-Life Integration</h4>
+                    <p>Move beyond "balance" to true integration. Strategies for professionals navigating demanding careers while preserving personal well-being.</p>
+                </div>
 
-    <!-- Contact Section -->
-    <section id="contact" class="max-w-6xl mx-auto px-6 py-20 text-center">
-      <h2 class="text-3xl mb-6">Contact</h2>
-      <p class="text-gray-600">Let’s connect and build something meaningful.</p>
-      <div class="mt-6 space-x-6">
-        <a href="mailto:bhoomikabhilai@gmail.com" class="text-purple-600">Email</a>
-        <a href="https://www.linkedin.com/in/bhoomika-taneja-919066170" target="_blank" class="text-purple-600">LinkedIn</a>
-        <a href="https://github.com" target="_blank" class="text-purple-600">GitHub</a>
-      </div>
-    </section>
+                <div class="feature-item">
+                    <h4>Relationship Wisdom</h4>
+                    <p>Strengthen bonds with family, friends, and colleagues. Communication skills, boundary-setting, and the art of being present.</p>
+                </div>
 
-  </main>
+                <div class="feature-item">
+                    <h4>Career Development</h4>
+                    <p>Navigate transitions from middle to senior management. Leadership skills, strategic thinking, and aligning work with purpose.</p>
+                </div>
 
-  <!-- Footer -->
-  <footer class="text-center py-10 text-sm text-gray-500">
-    © 2025 Bhoomika Taneja · Built with HTML, Tailwind CSS & ❤️
-  </footer>
+                <div class="feature-item">
+                    <h4>Financial Clarity</h4>
+                    <p>Build wealth sustainably. Investment principles, smart spending, and long-term financial planning for every life stage.</p>
+                </div>
 
+                <div class="feature-item">
+                    <h4>Physical Vitality</h4>
+                    <p>Sustainable fitness and nutrition for busy professionals. Evidence-based approaches that fit your lifestyle and last.</p>
+                </div>
+
+                <div class="feature-item">
+                    <h4>Mental Resilience</h4>
+                    <p>Stress management, emotional intelligence, and mindfulness practices. Build psychological strength for life's challenges.</p>
+                </div>
+
+                <div class="feature-item">
+                    <h4>Social Contribution</h4>
+                    <p>Find meaning through service and community involvement. Align your skills with causes that matter to you.</p>
+                </div>
+
+                <div class="feature-item">
+                    <h4>Personal Growth</h4>
+                    <p>Continuous learning, self-reflection, and character development. Become the person you aspire to be.</p>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- HEALTH PAGE -->
+    <div id="health" class="page-section">
+        <section style="margin-top: 120px;">
+            <div class="section-header">
+                <h2>Health: Your Foundation</h2>
+                <p>Sustainable practices for physical and mental well-being</p>
+            </div>
+
+            <div class="philosophy">
+                <div class="philosophy-content">
+                    <p class="philosophy-text">
+                        Health is not about perfection or extreme measures. It's about building sustainable habits 
+                        that support your energy, clarity, and longevity. For working professionals, this means 
+                        finding practices that fit your schedule and actually work.
+                    </p>
+                </div>
+            </div>
+
+            <div class="content-grid">
+                <div class="content-card">
+                    <h3>Physical Well-being</h3>
+                    <ul>
+                        <li>Movement that fits your lifestyle (not just gym routines)</li>
+                        <li>Nutrition for sustained energy and focus</li>
+                        <li>Sleep optimization for recovery and performance</li>
+                        <li>Preventive health and regular check-ups</li>
+                        <li>Posture and ergonomics for desk workers</li>
+                    </ul>
+                </div>
+
+                <div class="content-card">
+                    <h3>Mental Resilience</h3>
+                    <ul>
+                        <li>Stress management techniques that actually work</li>
+                        <li>Mindfulness and meditation for busy professionals</li>
+                        <li>Building emotional intelligence</li>
+                        <li>Managing anxiety and overwhelm</li>
+                        <li>Cognitive health and mental sharpness</li>
+                    </ul>
+                </div>
+
+                <div class="content-card">
+                    <h3>Energy Management</h3>
+                    <ul>
+                        <li>Understanding your natural rhythms</li>
+                        <li>Strategic breaks and recovery periods</li>
+                        <li>Caffeine and supplements wisely used</li>
+                        <li>Managing digital overload</li>
+                        <li>Sustaining high performance without burnout</li>
+                    </ul>
+                </div>
+
+                <div class="content-card">
+                    <h3>Long-term Vitality</h3>
+                    <ul>
+                        <li>Habits that compound over decades</li>
+                        <li>Aging well and maintaining function</li>
+                        <li>Chronic disease prevention</li>
+                        <li>Maintaining strength and mobility</li>
+                        <li>Building resilience for life's challenges</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="philosophy" style="margin-top: 4rem;">
+                <div class="philosophy-content">
+                    <h2>Health Principles</h2>
+                    <p class="philosophy-text">
+                        <strong>Consistency over intensity:</strong> A daily 20-minute walk beats sporadic marathon training sessions.
+                    </p>
+                    <p class="philosophy-text">
+                        <strong>Prevention over cure:</strong> Small investments in health today prevent major issues tomorrow.
+                    </p>
+                    <p class="philosophy-text">
+                        <strong>Integration over addition:</strong> Build health into your existing routine rather than adding more to-dos.
+                    </p>
+                    <p class="philosophy-text">
+                        <strong>Mind-body connection:</strong> Physical health supports mental clarity, and vice versa. They're inseparable.
+                    </p>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- WEALTH PAGE -->
+    <div id="wealth" class="page-section">
+        <section style="margin-top: 120px;">
+            <div class="section-header">
+                <h2>Wealth: Financial Freedom</h2>
+                <p>Building security and opportunity through wise decisions</p>
+            </div>
+
+            <div class="philosophy">
+                <div class="philosophy-content">
+                    <p class="philosophy-text">
+                        Wealth isn't just about money—it's about security, options, and the freedom to make choices 
+                        aligned with your values. For professionals in their prime earning years, this is the time 
+                        to build a foundation that will serve you for decades.
+                    </p>
+                </div>
+            </div>
+
+            <div class="content-grid">
+                <div class="content-card">
+                    <h3>Career Growth</h3>
+                    <ul>
+                        <li>Strategic career planning and navigation</li>
+                        <li>Developing high-value skills</li>
+                        <li>Leadership development for managers</li>
+                        <li>Negotiation and compensation strategies</li>
+                        <li>Building professional networks</li>
+                    </ul>
+                </div>
+
+                <div class="content-card">
+                    <h3>Financial Planning</h3>
+                    <ul>
+                        <li>Budgeting that doesn't feel restrictive</li>
+                        <li>Smart saving and emergency funds</li>
+                        <li>Debt management and elimination</li>
+                        <li>Tax optimization strategies</li>
+                        <li>Insurance and protection planning</li>
+                    </ul>
+                </div>
+
+                <div class="content-card">
+                    <h3>Investment Wisdom</h3>
+                    <ul>
+                        <li>Long-term investment principles</li>
+                        <li>Asset allocation for different life stages</li>
+                        <li>Retirement planning that starts now</li>
+                        <li>Understanding risk and returns</li>
+                        <li>Avoiding common investment mistakes</li>
+                    </ul>
+                </div>
+
+                <div class="content-card">
+                    <h3>Sustainable Wealth</h3>
+                    <ul>
+                        <li>Aligning money with values</li>
+                        <li>Conscious consumption and spending</li>
+                        <li>Creating multiple income streams</li>
+                        <li>Building legacy and generosity</li>
+                        <li>Financial independence planning</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="philosophy" style="margin-top: 4rem;">
+                <div class="philosophy-content">
+                    <h2>Wealth Principles</h2>
+                    <p class="philosophy-text">
+                        <strong>Live below your means:</strong> True wealth is having more than you spend, regardless of income level.
+                    </p>
+                    <p class="philosophy-text">
+                        <strong>Time is currency:</strong> Your most valuable asset is time. Spend money to buy back time for what matters.
+                    </p>
+                    <p class="philosophy-text">
+                        <strong>Compound effect:</strong> Small, consistent actions in your 30s and 40s create massive results by retirement.
+                    </p>
+                    <p class="philosophy-text">
+                        <strong>Values-aligned wealth:</strong> Money is a tool. Use it to support the life you want, not the life others expect.
+                    </p>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- HAPPINESS PAGE -->
+    <div id="happiness" class="page-section">
+        <section style="margin-top: 120px;">
+            <div class="section-header">
+                <h2>Happiness: Meaningful Connection</h2>
+                <p>Cultivating relationships, purpose, and inner peace</p>
+            </div>
+
+            <div class="philosophy">
+                <div class="philosophy-content">
+                    <p class="philosophy-text">
+                        Happiness isn't a destination or feeling—it's a practice of attention and intention. 
+                        It's found in the quality of your relationships, the depth of your presence, and the 
+                        alignment between your actions and values.
+                    </p>
+                </div>
+            </div>
+
+            <div class="content-grid">
+                <div class="content-card">
+                    <h3>Family Connections</h3>
+                    <ul>
+                        <li>Quality time versus quantity time</li>
+                        <li>Maintaining partnerships through career demands</li>
+                        <li>Parenting while managing your career</li>
+                        <li>Supporting aging parents</li>
+                        <li>Creating family rituals and traditions</li>
+                    </ul>
+                </div>
+
+                <div class="content-card">
+                    <h3>Friendships</h3>
+                    <ul>
+                        <li>Maintaining friendships as life gets busier</li>
+                        <li>Building deep versus shallow connections</li>
+                        <li>The art of vulnerability and authenticity</li>
+                        <li>Supporting friends through transitions</li>
+                        <li>Creating space for meaningful conversation</li>
+                    </ul>
+                </div>
+
+                <div class="content-card">
+                    <h3>Social Contribution</h3>
+                    <ul>
+                        <li>Finding your unique way to contribute</li>
+                        <li>Volunteering and community service</li>
+                        <li>Mentoring and giving back</li>
+                        <li>Environmental sustainability in daily life</li>
+                        <li>Creating positive ripples in your sphere</li>
+                    </ul>
+                </div>
+
+                <div class="content-card">
+                    <h3>Inner Peace</h3>
+                    <ul>
+                        <li>Self-compassion and self-acceptance</li>
+                        <li>Finding purpose beyond achievement</li>
+                        <li>Gratitude as a daily practice</li>
+                        <li>Letting go of comparison and competition</li>
+                        <li>Cultivating contentment in the present</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="philosophy" style="margin-top: 4rem;">
+                <div class="philosophy-content">
+                    <h2>Happiness Principles</h2>
+                    <p class="philosophy-text">
+                        <strong>Presence is the gift:</strong> The greatest thing you can give anyone is your full attention.
+                    </p>
+                    <p class="philosophy-text">
+                        <strong>Relationships are primary:</strong> At the end of life, people regret time not spent with loved ones, never time not spent at work.
+                    </p>
+                    <p class="philosophy-text">
+                        <strong>Meaning through service:</strong> True fulfillment comes from contributing to something larger than yourself.
+                    </p>
+                    <p class="philosophy-text">
+                        <strong>Inner work matters:</strong> You cannot find lasting happiness externally until you cultivate it internally.
+                    </p>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- JOURNEY PAGE -->
+    <div id="journey" class="page-section">
+        <section style="margin-top: 120px;">
+            <div class="section-header">
+                <h2>Your Journey Begins</h2>
+                <p>A practical roadmap for sustainable transformation</p>
+            </div>
+
+            <div class="philosophy">
+                <div class="philosophy-content">
+                    <p class="philosophy-text">
+                        Change doesn't happen overnight, and it doesn't require a complete life overhaul. 
+                        The Nidan approach is about small, intentional steps that compound over time. Start where you are. 
+                        Use what you have. Do what you can.
+                    </p>
+                </div>
+            </div>
+
+            <div class="journey-steps">
+                <div class="step">
+                    <div class="step-number">01</div>
+                    <div class="step-content">
+                        <h3>Assess Where You Are</h3>
+                        <p>Take honest stock of your current state across health, wealth, and happiness. No judgment—just clarity. What's working? What needs attention? Where do you feel most out of balance?</p>
+                    </div>
+                </div>
+
+                <div class="step">
+                    <div class="step-number">02</div>
+                    <div class="step-content">
+                        <h3>Define What Matters</h3>
+                        <p>Not what society expects. Not what others want for you. What do YOU value most? What kind of life do you want to build? What legacy do you want to leave? Get clear on your own definition of success.</p>
+                    </div>
+                </div>
+
+                <div class="step">
+                    <div class="step-number">03</div>
+                    <div class="step-content">
+                        <h3>Start With One Area</h3>
+                        <p>Choose one pillar—health, wealth, or happiness—where you feel the strongest pull for change. Don't try to transform everything at once. Deep work in one area will naturally influence the others.</p>
+                    </div>
+                </div>
+
+                <div class="step">
+                    <div class="step-number">04</div>
+                    <div class="step-content">
+                        <h3>Build Keystone Habits</h3>
+                        <p>Identify 1-3 habits that will create ripple effects across your life. A morning routine. Regular exercise. Weekly financial reviews. Time blocked for family. Start small and be consistent.</p>
+                    </div>
+                </div>
+
+                <div class="step">
+                    <div class="step-number">05</div>
+                    <div class="step-content">
+                        <h3>Track and Reflect</h3>
+                        <p>Create a simple system to monitor your progress. Weekly reflection, monthly reviews, quarterly big-picture assessment. Celebrate small wins. Adjust what's not working. Stay curious, not critical.</p>
+                    </div>
+                </div>
+
+                <div class="step">
+                    <div class="step-number">06</div>
+                    <div class="step-content">
+                        <h3>Expand Gradually</h3>
+                        <p>Once habits are established in one area, gradually integrate the other pillars. Health supports career performance. Financial security reduces stress. Strong relationships provide resilience. They all connect.</p>
+                    </div>
+                </div>
+
+                <div class="step">
+                    <div class="step-number">07</div>
+                    <div class="step-content">
+                        <h3>Stay the Course</h3>
+                        <p>Transformation is a marathon, not a sprint. There will be setbacks. Life will get complicated. The key is returning to your foundation—your Nidan—again and again. Consistency beats intensity every time.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="philosophy" style="margin-top: 4rem;">
+                <div class="philosophy-content">
+                    <h2>Remember</h2>
+                    <p class="philosophy-highlight">
+                        You don't need to be perfect. You don't need to have it all figured out. You just need to take 
+                        the next right step. And then the next one. That's how lives transform.
+                    </p>
+                    <p class="philosophy-text">
+                        This website is a resource for your journey. Explore the pillars. Reflect on the principles. 
+                        Take what resonates and leave what doesn't. Your path is your own.
+                    </p>
+                    <p class="philosophy-text">
+                        The new year is simply a marker—a good time to pause and choose your direction. But real change 
+                        happens in the daily choices. Start today. Start now. Start with one small step.
+                    </p>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>Nidan Life</h4>
+                <p>Building sustainable foundations for health, wealth, and happiness.</p>
+                <p style="margin-top: 1.5rem; font-size: 0.9rem;">Your journey to holistic well-being starts with one intentional step.</p>
+            </div>
+
+            <div class="footer-section">
+                <h4>Core Pillars</h4>
+                <a href="#" onclick="showPage('health')">Health & Vitality</a>
+                <a href="#" onclick="showPage('wealth')">Wealth & Career</a>
+                <a href="#" onclick="showPage('happiness')">Happiness & Meaning</a>
+                <a href="#" onclick="showPage('journey')">Begin Your Journey</a>
+            </div>
+
+            <div class="footer-section">
+                <h4>Philosophy</h4>
+                <p>Sustainable living over quick fixes</p>
+                <p>Integration over balance</p>
+                <p>Purpose over achievement</p>
+                <p>Presence over productivity</p>
+            </div>
+
+            <div class="footer-section">
+                <h4>For Professionals</h4>
+                <p>Ages 25-55</p>
+                <p>Middle & Senior Management</p>
+                <p>Career Development</p>
+                <p>Work-Life Integration</p>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>© 2025 Nidan Life. A foundation for sustainable growth.</p>
+        </div>
+    </footer>
+
+    <script>
+        function showPage(pageId) {
+            // Hide all pages
+            document.querySelectorAll('.page-section').forEach(section => {
+                section.classList.remove('active');
+            });
+            
+            // Show selected page
+            document.getElementById(pageId).classList.add('active');
+            
+            // Scroll to top
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+            
+            // Prevent default link behavior
+            return false;
+        }
+
+        // Smooth scroll behavior for all internal links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+            });
+        });
+    </script>
 </body>
 </html>
